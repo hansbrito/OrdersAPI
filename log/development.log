@@ -10763,3 +10763,221 @@ Processing by Api::V1::PermissionsController#index as */*
 Completed 200 OK in 34ms (Views: 12.9ms | ActiveRecord: 2.1ms)
 
 
+Started POST "/api/v1/authenticate" for ::1 at 2019-05-27 13:28:59 -0300
+  [1m[35m (6.8ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /Users/hansbrito/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (11.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  ↳ /Users/hansbrito/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"lacythiel@konopelski.org", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:15
+  [1m[36mPermission Load (0.7ms)[0m  [1m[34mSELECT `permissions`.`id`, `permissions`.`title` FROM `permissions` INNER JOIN `permissions_profiles` ON `permissions`.`id` = `permissions_profiles`.`permission_id` WHERE `permissions_profiles`.`profile_id` = 1[0m
+  ↳ app/commands/authenticate_user.rb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+Completed 200 OK in 508ms (Views: 1.1ms | ActiveRecord: 56.6ms)
+
+
+Started GET "/api/v1/permissions" for ::1 at 2019-05-27 13:29:16 -0300
+Processing by Api::V1::PermissionsController#index as */*
+  [1m[36mPermission Load (0.5ms)[0m  [1m[34mSELECT `permissions`.* FROM `permissions`[0m
+  ↳ app/controllers/api/v1/permissions_controller.rb:8
+Completed 200 OK in 11ms (Views: 6.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/users/1" for ::1 at 2019-05-27 13:29:19 -0300
+Processing by Api::V1::UsersController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/api/v1/users_controller.rb:44
+Completed 200 OK in 11ms (Views: 1.5ms | ActiveRecord: 6.3ms)
+
+
+Started POST "/api/v1/authenticate" for ::1 at 2019-05-27 13:46:35 -0300
+  [1m[35m (6.2ms)[0m  [1m[35mSET  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /Users/hansbrito/.rbenv/versions/2.5.5/lib/ruby/gems/2.5.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"lacythiel@konopelski.org", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:15
+  [1m[36mPermission Load (0.5ms)[0m  [1m[34mSELECT `permissions`.`id`, `permissions`.`title` FROM `permissions` INNER JOIN `permissions_profiles` ON `permissions`.`id` = `permissions_profiles`.`permission_id` WHERE `permissions_profiles`.`profile_id` = 1[0m
+  ↳ app/commands/authenticate_user.rb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+Completed 200 OK in 454ms (Views: 0.3ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/api/v1/authenticate" for ::1 at 2019-05-27 13:48:25 -0300
+Processing by Api::V1::AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"lacythiel@konopelski.org", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:15
+  [1m[36mPermission Load (0.6ms)[0m  [1m[34mSELECT `permissions`.`id`, `permissions`.`title` FROM `permissions` INNER JOIN `permissions_profiles` ON `permissions`.`id` = `permissions_profiles`.`permission_id` WHERE `permissions_profiles`.`profile_id` = 1[0m
+  ↳ app/commands/authenticate_user.rb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+Completed 500 Internal Server Error in 364ms (ActiveRecord: 10.0ms)
+
+
+  
+NameError (undefined local variable or method `useruser' for #<AuthenticateUser:0x00007f946dc3f9e8>):
+  
+app/commands/authenticate_user.rb:21:in `call'
+app/controllers/api/v1/authentication_controller.rb:5:in `authenticate'
+Started POST "/api/v1/authenticate" for ::1 at 2019-05-27 13:48:35 -0300
+Processing by Api::V1::AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"lacythiel@konopelski.org", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:15
+  [1m[36mPermission Load (0.4ms)[0m  [1m[34mSELECT `permissions`.`id`, `permissions`.`title` FROM `permissions` INNER JOIN `permissions_profiles` ON `permissions`.`id` = `permissions_profiles`.`permission_id` WHERE `permissions_profiles`.`profile_id` = 1[0m
+  ↳ app/commands/authenticate_user.rb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+Completed 500 Internal Server Error in 448ms (ActiveRecord: 10.0ms)
+
+
+  
+NoMethodError (undefined method `remove' for #<Hash:0x00007f946ab4ecf8>):
+  
+app/commands/authenticate_user.rb:21:in `call'
+app/controllers/api/v1/authentication_controller.rb:5:in `authenticate'
+Started POST "/api/v1/authenticate" for ::1 at 2019-05-27 13:49:01 -0300
+Processing by Api::V1::AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"lacythiel@konopelski.org", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:15
+  [1m[36mPermission Load (1.1ms)[0m  [1m[34mSELECT `permissions`.`id`, `permissions`.`title` FROM `permissions` INNER JOIN `permissions_profiles` ON `permissions`.`id` = `permissions_profiles`.`permission_id` WHERE `permissions_profiles`.`profile_id` = 1[0m
+  ↳ app/commands/authenticate_user.rb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+Completed 500 Internal Server Error in 482ms (ActiveRecord: 18.5ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 1)):
+  
+app/commands/authenticate_user.rb:21:in `delete'
+app/commands/authenticate_user.rb:21:in `call'
+app/controllers/api/v1/authentication_controller.rb:5:in `authenticate'
+Started POST "/api/v1/authenticate" for ::1 at 2019-05-27 13:49:20 -0300
+Processing by Api::V1::AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"lacythiel@konopelski.org", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:15
+  [1m[36mPermission Load (0.3ms)[0m  [1m[34mSELECT `permissions`.`id`, `permissions`.`title` FROM `permissions` INNER JOIN `permissions_profiles` ON `permissions`.`id` = `permissions_profiles`.`permission_id` WHERE `permissions_profiles`.`profile_id` = 1[0m
+  ↳ app/commands/authenticate_user.rb:15
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+Completed 200 OK in 443ms (Views: 0.3ms | ActiveRecord: 7.1ms)
+
+
+Started POST "/api/v1/authenticate" for ::1 at 2019-05-27 13:51:37 -0300
+Processing by Api::V1::AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"lacythiel@konopelski.org", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/hansbrito/Dev/ruby/OrdersAPI/app/commands/authenticate_user.rb:21: syntax error, unexpected '}', expecting =>
+...n { _profile_with_permissions } if user
+...                              ^):
+  
+app/commands/authenticate_user.rb:21: syntax error, unexpected '}', expecting =>
+app/controllers/api/v1/authentication_controller.rb:5:in `authenticate'
+Started POST "/api/v1/authenticate" for ::1 at 2019-05-27 13:51:54 -0300
+Processing by Api::V1::AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"lacythiel@konopelski.org", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:14
+  [1m[36mPermission Load (0.4ms)[0m  [1m[34mSELECT `permissions`.`id`, `permissions`.`title` FROM `permissions` INNER JOIN `permissions_profiles` ON `permissions`.`id` = `permissions_profiles`.`permission_id` WHERE `permissions_profiles`.`profile_id` = 1[0m
+  ↳ app/commands/authenticate_user.rb:14
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+Completed 200 OK in 372ms (Views: 0.5ms | ActiveRecord: 9.5ms)
+
+
+Started POST "/api/v1/authenticate" for ::1 at 2019-05-27 13:52:19 -0300
+Processing by Api::V1::AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"lacythiel@konopelski.org", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m
+  ↳ app/commands/authenticate_user.rb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+  [1m[36mCACHE Profile Load (0.0ms)[0m  [1m[34mSELECT  `profiles`.* FROM `profiles` WHERE `profiles`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:14
+  [1m[36mPermission Load (0.4ms)[0m  [1m[34mSELECT `permissions`.`id`, `permissions`.`title` FROM `permissions` INNER JOIN `permissions_profiles` ON `permissions`.`id` = `permissions_profiles`.`permission_id` WHERE `permissions_profiles`.`profile_id` = 1[0m
+  ↳ app/commands/authenticate_user.rb:14
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'lacythiel@konopelski.org' LIMIT 1[0m  [["email", "lacythiel@konopelski.org"], ["LIMIT", 1]]
+  ↳ app/commands/authenticate_user.rb:29
+Completed 200 OK in 396ms (Views: 0.4ms | ActiveRecord: 7.1ms)
+
+
