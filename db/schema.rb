@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_05_26_042736) do
 
-  create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name", limit: 100
     t.string "full_name"
     t.string "email"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_05_26_042736) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.bigint "user_id"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2019_05_26_042736) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "order_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "order_products", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "order_id"
     t.bigint "product_id"
     t.integer "amount"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2019_05_26_042736) do
     t.index ["product_id"], name: "index_order_products_on_product_id"
   end
 
-  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "client_id"
     t.text "address"
@@ -59,14 +59,14 @@ ActiveRecord::Schema.define(version: 2019_05_26_042736) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "permissions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "permissions", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "title", limit: 100
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "permissions_profiles", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "permissions_profiles", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "permission_id", null: false
     t.bigint "profile_id", null: false
     t.datetime "created_at", null: false
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2019_05_26_042736) do
     t.index ["profile_id", "permission_id"], name: "index_permissions_profiles_on_profile_id_and_permission_id"
   end
 
-  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "title", limit: 100
     t.text "description"
     t.decimal "price", precision: 10, scale: 2
@@ -83,14 +83,14 @@ ActiveRecord::Schema.define(version: 2019_05_26_042736) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "title", limit: 100
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "first_name", limit: 100
     t.string "last_name", limit: 100
     t.string "email"
